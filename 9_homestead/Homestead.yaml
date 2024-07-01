@@ -10,8 +10,8 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
-    - map: ~/code
-      to: /home/vagrant/code
+    - map: ~/Documents/oracle
+      to: /home/vagrant/oracle
 
 sites:
     - map: homestead.test
