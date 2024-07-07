@@ -56,7 +56,8 @@ Vagrant.configure("2") do |config|
   # If you use this you may want to enable additional shared subfolders as
   # shown above.
   # config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "/home/rusman/Documents/vagrant", "/home/vagrant/"
+  # config.vm.synced_folder "/home/rusman/Documents/vagrant", "/home/vagrant/"
+  # config.ssh.insert_key = false
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -83,8 +84,8 @@ Vagrant.configure("2") do |config|
     sudo dnf update -y
     # # sudo dnf install -y https://extras.getpagespeed.com/release-latest.rpm
     sudo dnf -y module reset nginx
-    sudo dnf -y module enable nginx:1.22
-    sudo dnf install -y firewall-config nano nginx
+    sudo dnf -y module enable nginx:1.24
+    sudo dnf install -y firewall-config nano nginx neofetch htop btop
     sudo systemctl enable nginx
     sudo systemctl restart nginx
     sudo firewall-cmd --add-service http

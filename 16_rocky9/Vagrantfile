@@ -81,17 +81,20 @@ Vagrant.configure("2") do |config|
     sudo dnf update -y
     # # sudo dnf install -y https://extras.getpagespeed.com/release-latest.rpm
     sudo dnf -y module reset nginx
+    sudo dnf module list nginx
     sudo dnf -y module enable nginx:1.22
     sudo dnf install -y firewall-config nano nginx
     sudo systemctl enable nginx
     sudo systemctl restart nginx
     sudo firewall-cmd --add-service http
 
-    sudo dnf install -y centos-release-stream
-    sudo dnf -y swap centos-{linux,stream}-repos
-    sudo dnf -y distro-sync
-    sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-    sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    # sudo dnf install -y centos-release-stream
+    # sudo dnf -y swap centos-{linux,stream}-repos
+    # sudo dnf -y distro-sync
+    sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    # sudo dnf -y install https://rpms.remirepo.net/enterprise/remi-release-9.2.rpm
+    sudo dnf -y install https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+    # sudo dnf config-manager --set-enabled remi
     sudo dnf install yum-utils
     sudo dnf -y module reset php
     sudo dnf -y module enable php:remi-8.3
